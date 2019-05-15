@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import { Link } from "react-router-dom";
+import Button from "../components/Button";
 import RoomsContainer from "../components/RoomsContainer";
 
 
@@ -10,9 +10,7 @@ const Rooms = () => {
     <>
       <Hero hero="roomsHero">
         <Banner title="our cars">
-          <Link to="/" className="btn-primary">
-            back to home
-          </Link>
+        <Button to="/" caption="back to home" />
         </Banner>
       </Hero>
       <RoomsContainer />

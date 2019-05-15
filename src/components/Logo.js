@@ -1,14 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FaCarAlt } from "react-icons/fa";
 
+const StyledLink = styled(Link) `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+`;
 
-function Logo() {
+const StyledIcon = styled(FaCarAlt) `
+  font-size: 2.5rem;
+  color: var(--primaryColor);
+`;
+
+const StyledTypo = styled.h2`
+  padding: 0;
+  margin: 0 15px;
+  color: var(--mainBlack);
+`;
+
+
+const Logo = () => {
   return (
-    <Link to="/" className="logo">
-      <FaCarAlt className="logo-icon" />
-      <h2 className="logo-typo">RentCar</h2>
-    </Link>
+    <StyledLink to="/">
+      <StyledIcon />
+      <StyledTypo>RentCar</StyledTypo>
+    </StyledLink>
   )
 }
 

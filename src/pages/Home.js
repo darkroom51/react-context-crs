@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import Services from "../components/Services";
 import FeaturedRooms from "../components/FeaturedRooms";
-
+import Button from "../components/Button";
 
 const home = () => {
   return (
@@ -14,9 +13,7 @@ const home = () => {
           title="One step to drive"
           subtitle="Book a car with one click"
         >
-          <Link to="/cars" className="btn-primary">
-            our cars
-          </Link>
+          <Button to="/cars" caption="our cars" />
         </Banner>
       </Hero>
       <Services />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import defaultBcg from "../images/defaultBcg.jpg";
 import Banner from "../components/Banner";
-import { Link } from "react-router-dom";
+import Button from "../components/Button";
 import { RoomContext } from "../context";
 import StyledHero from "../components/StyledHero";
 
@@ -25,10 +25,8 @@ class SingleRoom extends Component {
     if (!room) {
       return (
         <div className="error">
-          <h3> no such room could be found...</h3>
-          <Link to="/rooms" className="btn-primary">
-            back to rooms
-          </Link>
+          <h3>sorry, no such car...</h3>
+          <Button to="/cars" caption="back to cars" />
         </div>
       );
     }
@@ -50,9 +48,7 @@ class SingleRoom extends Component {
       <>
         <StyledHero img={main || this.state.defaultBcg}>
           <Banner title={`${name}`}>
-            <Link to="/cars" className="btn-primary">
-              back to cars
-            </Link>
+          <Button to="/cars" caption="back to cars" />
           </Banner>
         </StyledHero>
         <section className="single-room">
