@@ -1,6 +1,6 @@
 ## Simple excersise on React Context API
 
-Simple react app: Context API use, netlify deploy and Contentfull CMS (TODO). 
+Simple react app: Context API use, netlify deploy and Contentfull CMS (TODO). Also some basic play with styled-components,react-modal, react-leaflet and form validation using react hooks. 
 Based on tutorial by [john-smilga](https://www.youtube.com/watch?v=ScDWrogElmo&t=7720s).
 
 [note to myself from the future: see 3 ways of using Context API]

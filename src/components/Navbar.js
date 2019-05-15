@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Logo from "./Logo";
 import StyledLoginBtn from "./StyledLoginBtn";
 import Hamburger from "./Hamburger";
+import LoginModal from "./LoginForm";
 
 const StyledNavWrapper = styled.nav`
   position: fixed;
@@ -69,12 +70,21 @@ const StyledNavLinks = styled.ul`
 
 class Navbar extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    modalOpen: false,
   };
 
   handleToggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
+  handleOpenModal = () => {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  }
 
   render() {
     return (
@@ -89,8 +99,12 @@ class Navbar extends Component {
             <li> <Link to="/cars">Cars</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </StyledNavLinks>
-          <StyledLoginBtn>Login</StyledLoginBtn>
+          <StyledLoginBtn onClick={this.handleOpenModal}>Sign In</StyledLoginBtn>
         </StyledNavCenter>
+        <LoginModal
+          showModal={this.state.showModal}
+          handleCloseModal={this.handleCloseModal}
+        />
       </StyledNavWrapper>
     );
   }

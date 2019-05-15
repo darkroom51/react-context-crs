@@ -7,11 +7,10 @@ import validateAuth from "./validateForm";
 
 const INITIAL_STATE = {
   email: "",
-  fullName: "",
-  message: ""
+  password: ""
 };
 
-const ContactForm = () => {
+const LoginForm = () => {
   const {
     handleSubmit,
     handleChange,
@@ -23,7 +22,7 @@ const ContactForm = () => {
 
   return (
     <StyledWrapper>
-      <Title title="Get in touch" />
+      <Title title="Sign In" />
       <form onSubmit={handleSubmit}>
         <StyledInput
           onChange={handleChange}
@@ -33,30 +32,21 @@ const ContactForm = () => {
           // className={errors.email && "error-input"}
           error = {errors.email}
           autoComplete="off"
-          placeholder="Your email address"
+          placeholder="Email"
         />
         {errors.email && <StyledErrorMsg>{errors.email}</StyledErrorMsg>}
         <StyledInput
           onChange={handleChange}
           onBlur={handleBlur}
-          value={values.fullName}
-          error = {errors.fullName}
-          name="fullName"
-          type="text"
-          placeholder="Your Name"
+          value={values.password}
+          error = {errors.password}
+          name="password"
+          type="password"
+          placeholder="Password"
         />
-        {errors.fullName && <StyledErrorMsg>{errors.fullName}</StyledErrorMsg>}
-        <StyledTextArea
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.message}
-          error = {errors.message}
-          name="message"
-          placeholder="Your Message"
-        />
-        {errors.message && <StyledErrorMsg>{errors.message}</StyledErrorMsg>}
+        {errors.password && <StyledErrorMsg>{errors.password}</StyledErrorMsg>}
         <StyledButton disabled={isSubmitting} type="submit" className="btn-primary">
-          Send Your Message
+          Sign In
         </StyledButton>
       </form>
     </StyledWrapper>
@@ -64,9 +54,7 @@ const ContactForm = () => {
 };
 
 const StyledWrapper = styled.div`
-    max-width: 680px;
-    margin: 3rem auto 4rem auto;
-    padding: 0 1.5rem;
+    margin: 3rem;
 `;
 
 const StyledButton = styled.button`
@@ -94,20 +82,9 @@ const StyledInput = styled.input`
   letter-spacing: ${({ theme }) => theme.mainSpacing};
   color: ${({ theme }) => theme.mainBlack};
   background: ${({ theme }) => theme.offWhite};
-  padding: 0.4rem 0.9rem;
+  padding: 0.6rem 1.1rem;
   margin: 0.5rem 0;
-  border: 1px solid ${({ error, theme }) => error ? 'red' : theme.mainGrey};
-`;
-
-const StyledTextArea = styled.textarea`
-  display: inline-block;
-  width: 100%;
-  min-height: 10rem;
-  letter-spacing: ${({ theme }) => theme.mainSpacing};
-  color: ${({ theme }) => theme.mainBlack};
-  background: ${({ theme }) => theme.offWhite};
-  padding: 0.4rem 0.9rem;
-  margin: 0.5rem 0;
+  border-radius: 5px;
   border: 1px solid ${({ error, theme }) => error ? 'red' : theme.mainGrey};
 `;
 
@@ -116,4 +93,4 @@ const StyledErrorMsg = styled.p`
   font-size: 0.7rem;
 `;
 
-export default ContactForm;
+export default LoginForm;
